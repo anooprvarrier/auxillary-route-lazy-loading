@@ -1,0 +1,19 @@
+<h1>Lazy Aux Outlet</h1>
+<p>Routing a lazy loaded module into a named router outlet orphans the primary outlet content.</p>
+<ol>
+  <li>Click "Lazy Aux Outlet"</li>
+  <li>Click any page link (except for your current page)</li>
+</ol>
+<p><strong>Results:</strong> "page1 works!" will never be replaced.  Repeating the process will continue adding orphaned pages to the DOM.</p>
+<p><strong>Note:</strong> "Sync Aux Outlet" does not cause this problem.</p>
+
+<ul>
+  <li><a [routerLink]="['/']">Lazy Page 1</a></li>
+  <li><a [routerLink]="['/page2']">Lazy Page 2</a></li>
+  <li><a [routerLink]="['/page3']">Sync Page 3</a></li>
+  <li><a [routerLink]="['/page4']">Sync Page 4</a></li>
+  <li><a [routerLink]="['/', {outlets: { aux: ['modal']}}]">Lazy Aux Outlet</a></li>
+  <li><a [routerLink]="['/', {outlets: { aux: ['syncmodal']}}]">Sync Aux Outlet</a></li>
+</ul>
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
